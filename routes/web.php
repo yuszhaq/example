@@ -27,5 +27,8 @@ Route::get('/register', [RegisteredUserController::class, 'create']);
 Route::post('/register', [RegisteredUserController::class, 'store']);
 
 // login
-Route::get('/login', [SessionController::class, 'create']);
-Route::post('/login', [SessionController::class, 'store']);
+Route::controller(SessionController::class)->group(function () {
+  Route::get('/login', 'create');
+  Route::post('/login', 'store');
+  Route::post('/logout', 'destroy');
+});
