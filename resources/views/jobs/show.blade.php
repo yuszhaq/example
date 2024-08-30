@@ -10,14 +10,15 @@
     This job pays {{ $job['salary'] }} per year. --}}
     
   </p>
-
-  <div class="mt-6 items-center flex gap-2">
-    <x-button href="/jobs/{{ $job->id }}/edit">Edit Job</x-button>
-    <form action="/jobs/{{ $job->id }}" method="post">
-      @csrf
-      @method('DELETE')
-      <button class="text-red-700 text-sm font-bold relative inline-flex items-center px-4 py-2  bg-white border border-red-300 leading-5 rounded-md hover:text-red-500 ">Delete</button>
-    </form>
-  </div>
-
+    @can('click', $job)
+    <div class="mt-6 items-center flex gap-2">
+      <x-button href="/jobs/{{ $job->id }}/edit">Edit Job</x-button>
+      <form action="/jobs/{{ $job->id }}" method="post">
+        @csrf
+        @method('DELETE')
+        <button class="text-red-700 text-sm font-bold relative inline-flex items-center px-4 py-2  bg-white border border-red-300 leading-5 rounded-md hover:text-red-500 ">Delete</button>
+      </form>
+    </div>
+    @endcan
+  
 </x-layout>
