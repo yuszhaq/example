@@ -6,7 +6,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta http-equiv="X-UA-Compatible" content="IE=7">
   <title>Welcome Page</title>
-  <script src="https://cdn.tailwindcss.com"></script>
+  @vite(['resources/css/app.css','resources/js/app.js'])
 </head>
 <body class="h-full">
   <div class="min-h-full">
